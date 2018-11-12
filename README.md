@@ -98,4 +98,23 @@ var app = new Vue({
 </script>
 ```
 
+#后端接口返回JSON 格式
+```
+{
+    "total": 35374,
+    "data": [
+        {
+            "id": "16170",
+            "sku_name": "贝亲—新安抚奶嘴",
+            "orgin": "中国"
+        },
+		{
+            "id": "16170",
+            "sku_name": "贝亲—新安抚奶嘴",
+            "orgin": "中国"
+        }
+    ]
+}
+```
+
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
