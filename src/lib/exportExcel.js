@@ -68,6 +68,9 @@ let getExportData = function(response,currentPage,data) {
 
 //下载导出
 let downloadExport = function (data,currentPage) {
+    //兼容后端只接收offset 和 limit 参数分页处理
+    data.parames.offset = data.pageSize * (currentPage -1);
+    data.parames.limit = data.pageSize;
     axios.post(data.url + '?page='+currentPage, data.parames)
         .then(function (response) {
             getExportData(response,currentPage,data)
