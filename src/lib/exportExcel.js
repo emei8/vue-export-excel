@@ -56,6 +56,7 @@ let getExportData = function(response,currentPage,data) {
         jsonExport(exportData, data.fileType, data.fileName);
         targetObj.innerText = targetBtnTxt;
         targetObj.removeAttribute('disabled');
+        exportData = []; //清除已下载过的数据
     }else{
         targetObj.innerText = '正在导出，已完成 '+ percentage +'%';
         targetObj.setAttribute('disabled',true);
@@ -69,9 +70,16 @@ let getExportData = function(response,currentPage,data) {
 //下载导出
 let downloadExport = function (data,currentPage) {
     //兼容后端只接收offset 和 limit 参数分页处理
-    data.parames.offset = data.pageSize * (currentPage -1);
-    data.parames.limit = data.pageSize;
-    axios.post(data.url + '?page='+currentPage, data.parames)
+    let post_data = {
+        offset: data.pageSize * (currentPage -1),
+        limit: data.pageSize
+    }
+
+    for(let key in data.parames){
+        post_data[key] = data.parames[key];
+    }
+
+    axios.post(data.url + '?page='+currentPage, post_data)
         .then(function (response) {
             getExportData(response,currentPage,data)
         })

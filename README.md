@@ -6,6 +6,8 @@
 > 2、转换全在客户端完成，速度非常快
 > 3、可转换条数支持百万级别，理论上无上限
 > 4、转换有百分比进度提示
+> 5、无需处理长数字字段和日期格式问题，拉取的是什么数据存入到EXCEL的就是什么数据
+> 6、会向后端提交两种分页参数，第一种是get方式提交当前分页页码，第二种是post方式提交offset和limit分页查询参数
 
 ## Build Setup
 
@@ -44,9 +46,9 @@ npm run build
                 { 'label':'更新时间', 'prop': 'update_time' }
             ], //必须, 列头与字段名映射  如 [{'label':'用户名', 'prop': 'username'},{'label':'角色','prop': 'role'}]
             url: 'http://www.xxxxxx.com/api/Table/index' //后端请求数据地址， 必须
-            page: 'page', //请求分页的参数名称，默认为page, 可选
-            parames: [], //post参数，搜索表单，默认为[], 可选
-            pageSize: 50, //每次拉取数据条数，根据服务器响应速度确定， 默认50, 可选
+            page: 'page', //请求分页的参数名称，会向后端get方式发此参数的分页数，默认为page, 可选
+            parames: {}, //post参数，搜索表单，会向后端post参数外，还会post提交offset和limit分页参数，默认为{}, 可选
+            pageSize: 50, //每次拉取数据条数，数字越大下载越快，根据服务器响应速度确定， 默认50, 可选
             fileName: '',//保存的文件名称, 默认为当前日期， 可选
             fileType: 'xlsx' //保存的文件类型， 支持的类型  xlsx, csv, txt, xml，  默认为 xlsx, 可选
         })
@@ -86,8 +88,8 @@ var app = new Vue({
                       ], //必须, 列头与字段名映射  如 [{'label':'用户名', 'prop': 'username'},{'label':'角色','prop': 'role'}]
                       url: 'http://www.xxxxxx.com/api/Table/index' //后端请求数据地址， 必须
                       page: 'page', //请求分页的参数名称，默认为page, 可选
-                      parames: [], //post参数，搜索表单，默认为[], 可选
-                      pageSize: 50, //每次拉取数据条数，根据服务器响应速度确定， 默认50, 可选
+                      parames: {}, //post参数，搜索表单，默认为{}, 可选
+                      pageSize: 50, //每次拉取数据条数，数字越大下载越快，根据服务器响应速度确定， 默认50, 可选
                       fileName: '',//保存的文件名称, 默认为当前日期， 可选
                       fileType: 'xlsx' //保存的文件类型， 支持的类型  xlsx, csv, txt, xml，  默认为 xlsx, 可选
                   })
