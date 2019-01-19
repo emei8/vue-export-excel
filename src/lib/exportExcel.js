@@ -27,7 +27,6 @@
 
 import axios from 'axios'
 import jsonExport from './jsonExport'
-import 'element-ui/lib/theme-chalk/progress.css'
 
 let exportData = [];
 let targetBtnTxt = '';
