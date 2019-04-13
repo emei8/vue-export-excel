@@ -47,7 +47,7 @@ let getExportData = function(response,currentPage,data) {
     })
 
     let totalPages = Math.ceil(response.data.total / data.pageSize)
-
+    if(response.data.total == 0) totalPages = 1
     let percentage = Math.ceil(currentPage / totalPages * 100)
 
     //全部拉取完后，开始下载数据
