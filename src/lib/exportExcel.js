@@ -31,6 +31,7 @@ import jsonExport from './jsonExport'
 let exportData = [];
 let targetBtnTxt = '';
 let targetObj = {};
+let resultObj = {};
 
 //拉取要导出的数据的回调
 let getExportData = function(response,currentPage,data) {
@@ -54,11 +55,13 @@ let getExportData = function(response,currentPage,data) {
     if(currentPage == totalPages){
         jsonExport(exportData, data.fileType, data.fileName);
         targetObj.innerText = targetBtnTxt;
+        if(resultObj.innerText != undefined) resultObj.innerText = '';
         targetObj.removeAttribute('disabled');
         exportData = []; //清除已下载过的数据
     }else{
         targetObj.innerText = '正在导出，已完成 '+ percentage +'%';
         targetObj.setAttribute('disabled',true);
+        if(resultObj.innerText != undefined) resultObj.innerText = targetObj.innerText
         currentPage++;
         downloadExport(data,currentPage);
     }
@@ -78,7 +81,12 @@ let downloadExport = function (data,currentPage) {
         post_data[key] = data.parames[key];
     }
 
-    axios.post(data.url + '?page='+currentPage, post_data)
+    let download_url = data.url + '?page=' + currentPage
+    if(data.url.indexOf('?') != -1){
+        download_url = data.url + '&page=' + currentPage
+    }
+
+    axios.post(download_url, post_data)
         .then(function (response) {
             getExportData(response,currentPage,data)
         })
@@ -117,6 +125,7 @@ const exportExcelPlugin = {
             if(data.fileType == undefined || data.fileType == '') data.fileType = 'xlsx'
 
             targetObj = document.getElementById(data.target);
+            if(data.result != '' && data.result != null && data.result != undefined) resultObj = document.getElementById(data.result);
             targetBtnTxt = targetObj.innerText;
             downloadExport(data,1)
         }

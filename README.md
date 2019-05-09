@@ -35,6 +35,7 @@ npm run build
     function exportExcel() {
         (new Vue).$exportExcel({
             target: 'toExcel', //必须, 触发导出的DOM元素ID
+            result: 'export_result', //显示导出进度的DOM元素ID
             columns: [
                 { 'label':'订单号', 'prop': 'erp_orders_sn' },
                 { 'label':'订单sku', 'prop': 'orders_sku' },
@@ -76,6 +77,7 @@ var app = new Vue({
             exportExcel: function () {
                 this.$exportExcel({
                       target: 'toExcel', //必须, 触发导出的DOM元素ID
+                      result: 'export_result', //显示导出进度的DOM元素ID
                       columns: [
                           { 'label':'订单号', 'prop': 'erp_orders_sn' },
                           { 'label':'订单sku', 'prop': 'orders_sku' },
