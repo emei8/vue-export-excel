@@ -55,13 +55,13 @@ let getExportData = function(response,currentPage,data) {
     if(currentPage == totalPages){
         jsonExport(exportData, data.fileType, data.fileName);
         targetObj.innerText = targetBtnTxt;
-        if(resultObj.innerText != undefined) resultObj.innerText = '';
+        if(resultObj != null && resultObj.length != 0 && resultObj.innerText != undefined) resultObj.innerText = '';
         targetObj.removeAttribute('disabled');
         exportData = []; //清除已下载过的数据
     }else{
         targetObj.innerText = '正在导出，已完成 '+ percentage +'%';
         targetObj.setAttribute('disabled',true);
-        if(resultObj.innerText != undefined) resultObj.innerText = targetObj.innerText
+        if(resultObj != null && resultObj.length != 0 && resultObj.innerText != undefined) resultObj.innerText = targetObj.innerText
         currentPage++;
         downloadExport(data,currentPage);
     }
