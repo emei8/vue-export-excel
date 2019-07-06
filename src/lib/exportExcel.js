@@ -127,6 +127,8 @@ const exportExcelPlugin = {
             targetObj = document.getElementById(data.target);
             if(data.result != '' && data.result != null && data.result != undefined) resultObj = document.getElementById(data.result);
             targetBtnTxt = targetObj.innerText;
+            targetObj.innerText = '正在导出，请稍后...';
+            targetObj.setAttribute('disabled',true);
             downloadExport(data,1)
         }
     }
