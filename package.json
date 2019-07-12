@@ -11,12 +11,12 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "element-ui": "^2.4.11",
-    "file-saver": "^2.0.0",
-    "vue": "^2.5.22",
-    "webpack-cli": "^3.2.1",
-    "xlsx": "^0.14.1"
+    "axios": "^0.18.1",
+    "element-ui": "^2.10.1",
+    "file-saver": "^2.0.2",
+    "vue": "^2.6.10",
+    "webpack-cli": "^3.3.5",
+    "xlsx": "^0.14.3"
   },
   "browserslist": [
     "> 1%",
@@ -32,8 +32,8 @@
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
     "vue-loader": "^13.0.5",
-    "vue-template-compiler": "^2.5.22",
-    "webpack": "^4.28.4",
-    "webpack-dev-server": "^3.1.14"
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.35.3",
+    "webpack-dev-server": "^3.7.2"
   }
 }
