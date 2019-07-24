@@ -1,7 +1,7 @@
 {
   "name": "vue-export-excel",
   "description": "基于vue2的json数据转成Excel文件插件",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "386196596@qq.com",
   "main": "dist/exportExcel.js",
   "license": "MIT",
@@ -10,13 +10,17 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emei8/vue-export-excel.git"
+  },
   "dependencies": {
     "axios": "^0.18.1",
     "element-ui": "^2.10.1",
     "file-saver": "^2.0.2",
     "vue": "^2.6.10",
-    "webpack-cli": "^3.3.5",
-    "xlsx": "^0.14.3"
+    "webpack-cli": "^3.3.6",
+    "xlsx": "^0.14.4"
   },
   "browserslist": [
     "> 1%",
@@ -33,7 +37,11 @@
     "file-loader": "^1.1.4",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.35.3",
+    "webpack": "^4.37.0",
     "webpack-dev-server": "^3.7.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/emei8/vue-export-excel/issues"
+  },
+  "homepage": "https://github.com/emei8/vue-export-excel#readme"
 }

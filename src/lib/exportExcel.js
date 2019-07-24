@@ -93,6 +93,8 @@ let downloadExport = function (data,currentPage) {
         .catch(function (error) {
             console.log(error);
         });
+    post_data = null;
+    download_url = null;
 }
 
 const exportExcelPlugin = {
