@@ -20,7 +20,7 @@
     "file-saver": "^2.0.2",
     "vue": "^2.6.10",
     "webpack-cli": "^3.3.6",
-    "xlsx": "^0.14.4"
+    "xlsx": "^0.17.0"
   },
   "browserslist": [
     "> 1%",
